@@ -1,10 +1,6 @@
 import requests
-from flask import Flask
 
-app = Flask(__name__)
-
-@app.route('/user/<user_name>/repos')
-def get_user_repos(user_name):
+def github_repos(user_name):
     github_response = requests.get(f'https://api.github.com/users/{user_name}/repos').json()
     repos =  []
     for repo in github_response:
@@ -13,8 +9,7 @@ def get_user_repos(user_name):
         repos.append({'name': name, 'stars': stars})
     return {f'{user_name}': repos}
 
-@app.route('/user/<user_name>/stars')
-def get_user_stars(user_name):
+def github_stars(user_name):
     github_response = requests.get(f'https://api.github.com/users/{user_name}/repos').json()
     user_stars =  0
     for repo in github_response:
@@ -22,9 +17,7 @@ def get_user_stars(user_name):
         user_stars = user_stars + repo_stars
     return {'user_stars': user_stars}
 
-
-@app.route('/user/<user_name>/top3_languages')
-def get_user_languages(user_name):
+def github_languages(user_name):
     github_response = requests.get(f'https://api.github.com/users/{user_name}/repos').json()
     repos =  []
     for repo in github_response:
@@ -36,6 +29,5 @@ def get_user_languages(user_name):
         lang_dict = {k: lang_dict.get(k, 0) + github_response.get(k, 0) for k in set(lang_dict) | set(github_response)}
     lang_list = list(lang_dict.items())
     lang_list.sort(reverse=True, key = lambda x: x[1])
-    lang_top3_list = lang_list[:3]
-    lang_top3_dict = {k:v for (k,v) in lang_top3_list}
-    return lang_top3_dict
+    lang_top3 = lang_list[:3]
+    return {k:v for (k,v) in lang_top3}

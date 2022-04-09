@@ -8,7 +8,7 @@ token = ''
 gh_session = requests.Session()
 gh_session.auth = (username, token)
 
-@app.route('/user/<user_name>/repos')
+@app.route('/user/<user_name>/repos', methods=['GET'])
 def get_user_repos(user_name):
     github_response = gh_session.get(f'https://api.github.com/users/{user_name}/repos').json()
     repos =  []
@@ -18,7 +18,7 @@ def get_user_repos(user_name):
         repos.append({'name': name, 'stars': stars})
     return {f'{user_name}': repos}
 
-@app.route('/user/<user_name>/stars')
+@app.route('/user/<user_name>/stars', methods=['GET'])
 def get_user_stars(user_name):
     github_response = gh_session.get(f'https://api.github.com/users/{user_name}/repos').json()
     user_stars =  0
@@ -28,7 +28,7 @@ def get_user_stars(user_name):
     return {'user_stars': user_stars}
 
 
-@app.route('/user/<user_name>/top3_languages')
+@app.route('/user/<user_name>/top3_languages', methods=['GET'])
 def get_user_languages(user_name):
     github_response = gh_session.get(f'https://api.github.com/users/{user_name}/repos').json()
     repos =  []
