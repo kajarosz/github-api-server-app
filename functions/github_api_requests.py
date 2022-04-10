@@ -4,7 +4,7 @@ import requests
 def if_user_exists(func):
     def inner(user_name):
         response = github_details(user_name)
-        if response == {"Message": "User not found"} or response == {"Message": "Unknown error"}:
+        if response is None:
             return response
         else:
             return func(user_name)
@@ -24,12 +24,9 @@ def github_details(user_name):
             # create repo dict and append to the list
             repos.append({'name': name, 'stars': stars})
         return repos
-    elif response.status_code == 404:
-        return {"Message": "User not found"}
     else:
-        return {"Message": "Unknown error"}
+        return None
         
-
 # Define reponse: user repos details
 @if_user_exists
 def github_repos(user_name):
