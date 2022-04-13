@@ -15,7 +15,7 @@ def test_get_user_repos_valid():
     url = '/user/kajarosz/repos'
     response =  client.get(url)
     assert response.status_code == 200
-    assert b'kajarosz' in response.get_data()
+    assert b'user_repositories' in response.get_data()
     assert response.content_type == 'application/json'
 
 # path /user/<user_name>/repos
@@ -55,7 +55,7 @@ def test_get_user_languages_valid():
     url = '/user/kajarosz/top3-languages'
     response =  client.get(url)
     assert response.status_code == 200
-    assert b'kajarosz' in response.get_data()
+    assert b'top3-languages' in response.get_data()
     assert response.content_type == 'application/json'
 
 # path /user/<user_name>/languages

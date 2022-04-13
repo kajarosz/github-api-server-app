@@ -9,9 +9,29 @@ def test_github_details_valid():
 # test if function returns json data if username is valid
 def test_github_repos_valid():
     result = github_repos('kajarosz')
-    assert result.content_type == 'application/json'
+    assert isinstance(result, dict)
 
 # test if function returns None if username is not valid
 def test_github_repos_invalid():
-    result = github_repos('kajarosz')
-    assert result.get_data() == None
+    result = github_repos('kajaroszzzzzzzzzz')
+    assert result == None
+
+# test if function returns json data if username is valid
+def test_github_stars_valid():
+    result = github_stars('kajarosz')
+    assert isinstance(result, dict)
+
+# test if function returns None if username is not valid
+def test_github_stars_invalid():
+    result = github_stars('kajaroszzzzzzzzzz')
+    assert result == None
+
+# test if function returns json data if username is valid
+def test_github_languages_valid():
+    result = github_languages('kajarosz')
+    assert isinstance(result, dict)
+
+# test if function returns None if username is not valid
+def test_github_languages_invalid():
+    result = github_languages('kajaroszzzzzzzzzz')
+    assert result == None

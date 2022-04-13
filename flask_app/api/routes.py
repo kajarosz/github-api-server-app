@@ -1,5 +1,9 @@
 from flask import abort, jsonify
-from request_data.github_api import github_languages, github_stars, github_repos, github_languages
+
+try:
+    from flask_app.request_data.github_api import github_languages, github_stars, github_repos, github_languages
+except:
+    from request_data.github_api import github_languages, github_stars, github_repos, github_languages
 
 def configure_routes(app):
 

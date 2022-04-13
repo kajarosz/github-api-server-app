@@ -39,7 +39,7 @@ def github_repos(user_name):
         return None
     except JsonParsingException:
         return None
-    return {f'{user_name}': repos}
+    return {'user_repositories': repos}
 
 # Define reponse: user stars count from all repos
 def github_stars(user_name):
@@ -75,4 +75,4 @@ def github_languages(user_name):
     lang_list.sort(reverse=True, key = lambda x: x[1])
     # return first three languages from list
     lang_top3 = lang_list[:3]
-    return {f'user_name': {k:v for (k,v) in lang_top3}}
+    return {'top3-languages': {k:v for (k,v) in lang_top3}}
