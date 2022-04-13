@@ -75,4 +75,4 @@ def github_languages(user_name):
     lang_list.sort(reverse=True, key = lambda x: x[1])
     # return first three languages from list
     lang_top3 = lang_list[:3]
-    return {k:v for (k,v) in lang_top3}
+    return {f'user_name': {k:v for (k,v) in lang_top3}}

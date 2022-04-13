@@ -1,2 +1,5 @@
 .venv
 __pycache__/
+githubapp.egg-info
+build
+.pytest_cashe/
