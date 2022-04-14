@@ -14,6 +14,6 @@ Fork this repo and clone it to your choosen directory (alternatively you can jus
 Install dependencies - required packages are listed in requirements.txt file.
 
 Run run_app.py file in Python.
-'''
+```
 python run_app.py
-'''
+```
