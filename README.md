@@ -38,3 +38,5 @@ pytest
 ### Improvements
 
 This is a simple project designed mostly for personal use - it utilizes Github API without authentication. High traffic is not expected for this app, so I decided that there's no reason to complicate the code. Authentication would require client to privide Github token, which can lead to some unnecessary safety concerns. However, lack of authentication means that app use is limited to 60 requests per hour (Github API limitations). If project grows and there's higher volume of requests, to fullfil client needs authenticated Github API access should be developed. 
+
+Another thing to improve would be functional tests (test_routes.py). Right now performing test requires internet connection, because app routes refer to external functions, which request data from Github API. Mockup functions should be developed, so routes functions could consume mockup data output, which would not be denepdent on internet connection or Github API access.
