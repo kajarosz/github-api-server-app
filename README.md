@@ -30,12 +30,12 @@ Go to ...
 
 ### How to run tests?
 
-Go to project directory and run in Python:
+In project directory run:
 ```
 pytest
 ```
 
-### Improvements
+### Possible improvements
 
 This is a simple project designed mostly for personal use - it utilizes Github API without authentication. High traffic is not expected for this app, so I decided that there's no reason to complicate the code. Authentication would require client to privide Github token, which can lead to some unnecessary safety concerns. However, lack of authentication means that app use is limited to 60 requests per hour (Github API limitations). If project grows and there's higher volume of requests, to fullfil client needs authenticated Github API access should be developed. 
 
