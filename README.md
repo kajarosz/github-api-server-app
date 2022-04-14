@@ -10,6 +10,9 @@ Data is returned in JSON and whole app works as REST API.
 ### How to start server?
 
 Fork this repo and clone it to your choosen directory (alternatively you can just download a .zip file and unpack it).
+```
+git clone https://github.com/kajarosz/github-api-server-app.git
+```
 
 Install dependencies - required packages are listed in requirements.txt file.
 
