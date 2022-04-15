@@ -1,10 +1,15 @@
-from flask import Flask
+import pytest
 from flask_app.request_data.github_api import github_details, github_languages, github_stars, github_repos, github_languages
 
 # test if function returns list object if username is valid
 def test_github_details_valid():
     result = github_details('kajarosz')
     assert isinstance(result, list)
+
+# test if function raises exception if username is not valid
+def test_github_details_invalid():
+    with pytest.raises(Exception):
+        result = github_details('kajaroszzzzzzzzzz')
 
 # test if function returns json data if username is valid
 def test_github_repos_valid():
