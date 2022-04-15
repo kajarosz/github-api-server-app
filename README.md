@@ -26,7 +26,12 @@ python run_app.py
 
 ### How to make requests?
 
-Go to ...
+Flask web server starts at port 127.0.0.1:5000 by default. In order to access particular API resources follow below schema:
+* User repositories list: 127.0.0.1:5000/user/<user_name>/repos
+* Sum of user stars: 127.0.0.1:5000/user/<user_name>/stars
+* Top 3 languages: 127.0. 0.1:5000/user/<user_name>/top3-languages
+
+<user_name> states for user name, which can be found e.g. in profile URL.
 
 ### How to run tests?
 
